@@ -1,8 +1,39 @@
-# React + Vite
+# 📺 YouTube Clone with React & RapidAPI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully responsive YouTube clone built using **React.js** and integrated with **YouTube Data API v3** via **RapidAPI**. The app allows users to search, view, and explore videos in real-time, mimicking the core features of YouTube.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+
+- 🔍 Real-time video **Search Functionality**
+- 📹 **Video Player** with recommendations
+- 🎞️ **Channel Details** with video lists
+- 📁 **Category Filters** (Trending, Music, Gaming, etc.)
+- 📱 Fully **Responsive Design**
+- ⚡ Powered by **RapidAPI (YouTube v3)**
+
+---
+
+## 🛠 Tech Stack
+
+| Tech          | Description                         |
+|---------------|-------------------------------------|
+| React.js      | Frontend UI Framework               |
+| RapidAPI      | YouTube Data API access             |
+| Axios         | HTTP requests                       |
+| React Router  | Navigation & Routing                |
+| Material UI   | UI Components & Icons               |
+| JavaScript ES6+| App logic & state handling         |
+| Vite/CRA      | React Development Environment       |
+
+---
+
+## 🧰 Prerequisites
+
+- Node.js and npm installed
+- Basic React knowledge
+- RapidAPI account with YouTube Data API access
+
+---
+
