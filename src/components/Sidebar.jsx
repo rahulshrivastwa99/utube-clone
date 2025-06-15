@@ -238,9 +238,9 @@ function Sidebar({ sidebarOpen, toggleSidebar }) {
 
   return (
     <div
-      className={`px-6 w-full sm:w-[17%] h-[calc(100vh-6.625rem)] overflow-y-scroll overflow-x-hidden ${
+      className={`px-6 w-full sm:w-[17%] h-[calc(100vh-6.625rem)] overflow-y-scroll overflow-x-hidden fixed sm:relative bg-white z-50 ${
         sidebarOpen ? "block" : "hidden"
-      } sm:block fixed sm:relative bg-white z-50`}
+      } sm:block`}
     >
       {/* Home */}
       <div className=" space-y-3 items-center">

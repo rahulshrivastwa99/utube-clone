@@ -36,6 +36,7 @@ function PlayingVideo() {
     fetchData(`video/comments/?id=${id}`).then((res) => {
       console.log("Comments:", res);
       if (res?.comments) {
+        console.log("First comment:", res.comments[0]);
         setComments(res.comments);
       }
     });
