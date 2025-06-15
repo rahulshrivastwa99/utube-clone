@@ -6,15 +6,18 @@ import { AiOutlineLike } from "react-icons/ai";
 import { abbreviateNumber } from "js-abbreviation-number";
 import SuggestedVideo from "./SuggestedVideo";
 import { BsFillCheckCircleFill } from "react-icons/bs";
+import Comment from "./Comment";
 
 function PlayingVideo() {
   const [video, setVideo] = useState();
   const [realatedVideo, setRelativeVideo] = useState();
+  const [comments, setComments] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
     fetchVideoDetails();
     fetchRelatedVideo();
+    fetchComments();
   }, [id]);
 
   const fetchVideoDetails = () => {
@@ -27,6 +30,14 @@ function PlayingVideo() {
     fetchData(`video/related-contents/?id=${id}`).then((res) => {
       console.log(res);
       setRelativeVideo(res);
+    });
+  };
+  const fetchComments = () => {
+    fetchData(`video/comments/?id=${id}`).then((res) => {
+      console.log("Comments:", res);
+      if (res?.comments) {
+        setComments(res.comments);
+      }
     });
   };
 
@@ -89,6 +100,15 @@ function PlayingVideo() {
           </div>
           <div className="flex gap-x-6 font-semibold rounded-xl mt-4 text-xl">
             {video?.stats?.comments} <p>Comments</p>
+          </div>
+          <div className="mt-4 max-h-96 overflow-y-auto border border-gray-300 rounded-lg p-4">
+            {comments.length > 0 ? (
+              comments.map((comment, index) => (
+                <Comment key={index} comment={comment} />
+              ))
+            ) : (
+              <p className="text-gray-500">No comments available.</p>
+            )}
           </div>
         </div>
         <div className="flex flex-col px-4 py-6 h-[calc(100vh-4.625rem)] overflow-y-scroll overflow-x-hidden lg:w-[350px] xl:w-[400px]">

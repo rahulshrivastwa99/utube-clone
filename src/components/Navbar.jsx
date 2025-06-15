@@ -10,7 +10,7 @@ import { AiOutlineBell } from "react-icons/ai";
 import logo from "../../public/logo.png";
 import profile from "../../public/profile.jpg";
 import { useNavigate } from "react-router-dom";
-function Navbar() {
+function Navbar({ toggleSidebar }) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const navigate = useNavigate();
@@ -28,7 +28,10 @@ function Navbar() {
   return (
     <div className="flex flex-col sm:flex-row justify-between fixed top-0 w-full bg-white px-4 sm:px-6 py-2 z-50">
       <div className="flex items-center space-x-4 mb-2 sm:mb-0">
-        <AiOutlineMenu className="text-xl cursor-pointer" />
+        <AiOutlineMenu
+          className="text-xl cursor-pointer"
+          onClick={toggleSidebar}
+        />
         <img src={logo} alt="" className="w-24 sm:w-28 cursor-pointer" />
       </div>
       <div className="flex w-full sm:w-[35%] items-center mb-2 sm:mb-0">

@@ -23,7 +23,9 @@ import { SiStylelint } from "react-icons/si";
 import { MdPodcasts } from "react-icons/md";
 import { BiVideo } from "react-icons/bi";
 import { GiLinkedRings } from "react-icons/gi";
-function Sidebar() {
+import { useNavigate } from "react-router-dom";
+
+function Sidebar({ sidebarOpen, toggleSidebar }) {
   const sidebarItems = [
     {
       id: 1,
@@ -152,21 +154,109 @@ function Sidebar() {
       icon: <SiYoutubekids />,
     },
   ];
+
+  const navigate = useNavigate();
+
+  const handleNavigation = (name) => {
+    switch (name.toLowerCase()) {
+      case "home":
+        navigate("/");
+        break;
+      case "shorts":
+        navigate("/shorts");
+        break;
+      case "subscriptions":
+        navigate("/subscriptions");
+        break;
+      case "your channel":
+        navigate("/channel");
+        break;
+      case "history":
+        navigate("/history");
+        break;
+      case "playlists":
+        navigate("/playlists");
+        break;
+      case "your videos":
+        navigate("/your-videos");
+        break;
+      case "watch later":
+        navigate("/watch-later");
+        break;
+      case "liked videos":
+        navigate("/liked-videos");
+        break;
+      case "trending":
+        navigate("/trending");
+        break;
+      case "shopping":
+        navigate("/shopping");
+        break;
+      case "music":
+        navigate("/music");
+        break;
+      case "films":
+        navigate("/films");
+        break;
+      case "live":
+        navigate("/live");
+        break;
+      case "gaming":
+        navigate("/gaming");
+        break;
+      case "news":
+        navigate("/news");
+        break;
+      case "sport":
+        navigate("/sport");
+        break;
+      case "courses":
+        navigate("/courses");
+        break;
+      case "fashion & beauty":
+        navigate("/fashion-beauty");
+        break;
+      case "padcasts":
+        navigate("/podcasts");
+        break;
+      case "youtube premium":
+        navigate("/premium");
+        break;
+      case "youtube studio":
+        navigate("/studio");
+        break;
+      case "youtube music":
+        navigate("/music");
+        break;
+      case "youtube kids":
+        navigate("/kids");
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
-    <div className="px-6 w-full sm:w-[17%] h-[calc(100vh-6.625rem)] overflow-y-scroll overflow-x-hidden hidden sm:block">
+    <div
+      className={`px-6 w-full sm:w-[17%] h-[calc(100vh-6.625rem)] overflow-y-scroll overflow-x-hidden ${
+        sidebarOpen ? "block" : "hidden"
+      } sm:block fixed sm:relative bg-white z-50`}
+    >
       {/* Home */}
       <div className=" space-y-3 items-center">
-        {sidebarItems.map((item) => {
-          return (
-            <div
-              key={item.id}
-              className="flex items-center space-x-6 hover:bg-gray-300 duration-300 rounded-xl p-1"
-            >
-              <div className="text-xl cursor-pointer">{item.icon}</div>
-              <span className="cursor-pointer">{item.name}</span>
-            </div>
-          );
-        })}
+        {sidebarItems.map((item) => (
+          <div
+            key={item.id}
+            onClick={() => {
+              handleNavigation(item.name);
+              if (sidebarOpen) toggleSidebar();
+            }}
+            className="flex items-center space-x-6 hover:bg-gray-300 duration-300 rounded-xl p-1 cursor-pointer"
+          >
+            <div className="text-xl">{item.icon}</div>
+            <span>{item.name}</span>
+          </div>
+        ))}
       </div>
       <br />
       <hr />
@@ -176,17 +266,19 @@ function Sidebar() {
           <h1>You</h1>
           <FaChevronRight />
         </div>
-        {sidebarItems2.map((item) => {
-          return (
-            <div
-              key={item.id}
-              className="flex items-center space-x-6 hover:bg-gray-300 duration-300 rounded-xl p-1"
-            >
-              <div className="text-xl cursor-pointer">{item.icon}</div>
-              <span className="cursor-pointer">{item.name}</span>
-            </div>
-          );
-        })}
+        {sidebarItems2.map((item) => (
+          <div
+            key={item.id}
+            onClick={() => {
+              handleNavigation(item.name);
+              if (sidebarOpen) toggleSidebar();
+            }}
+            className="flex items-center space-x-6 hover:bg-gray-300 duration-300 rounded-xl p-1 cursor-pointer"
+          >
+            <div className="text-xl">{item.icon}</div>
+            <span>{item.name}</span>
+          </div>
+        ))}
       </div>
       <br />
       <hr />
@@ -195,17 +287,19 @@ function Sidebar() {
         <div className="items-center space-x-2">
           <h1 className=" font-semibold">Explore</h1>
         </div>
-        {sidebarItems3.map((item) => {
-          return (
-            <div
-              key={item.id}
-              className="flex items-center space-x-6 hover:bg-gray-300 duration-300 rounded-xl p-1"
-            >
-              <div className="text-xl cursor-pointer">{item.icon}</div>
-              <span className="cursor-pointer">{item.name}</span>
-            </div>
-          );
-        })}
+        {sidebarItems3.map((item) => (
+          <div
+            key={item.id}
+            onClick={() => {
+              handleNavigation(item.name);
+              if (sidebarOpen) toggleSidebar();
+            }}
+            className="flex items-center space-x-6 hover:bg-gray-300 duration-300 rounded-xl p-1 cursor-pointer"
+          >
+            <div className="text-xl">{item.icon}</div>
+            <span>{item.name}</span>
+          </div>
+        ))}
       </div>
       <br />
       <hr />
@@ -214,19 +308,19 @@ function Sidebar() {
         <div className="items-center space-x-2">
           <h1 className=" font-semibold">More From Youtube</h1>
         </div>
-        {sidebarItems4.map((item) => {
-          return (
-            <div
-              key={item.id}
-              className="flex items-center space-x-6 hover:bg-gray-300 duration-300 rounded-xl p-1"
-            >
-              <div className="text-xl cursor-pointer text-red-500">
-                {item.icon}
-              </div>
-              <span className="cursor-pointer">{item.name}</span>
-            </div>
-          );
-        })}
+        {sidebarItems4.map((item) => (
+          <div
+            key={item.id}
+            onClick={() => {
+              handleNavigation(item.name);
+              if (sidebarOpen) toggleSidebar();
+            }}
+            className="flex items-center space-x-6 hover:bg-gray-300 duration-300 rounded-xl p-1 cursor-pointer"
+          >
+            <div className="text-xl text-red-500">{item.icon}</div>
+            <span>{item.name}</span>
+          </div>
+        ))}
         <hr />
       </div>
       <br />
