@@ -7,9 +7,9 @@ function Home() {
   const { data, loading } = useAuth();
   console.log(data);
   return (
-    <div className="flex mt-20">
+    <div className="flex flex-col sm:flex-row mt-20">
       <Sidebar />
-      <div className="h-[calc(100vh-6.625rem)] overflow-y-scroll overflow-x-hidden">
+      <div className="flex-1 h-[calc(100vh-6.625rem)] overflow-y-scroll overflow-x-hidden">
         <ListItems />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-5">
           {!loading &&

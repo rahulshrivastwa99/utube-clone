@@ -26,24 +26,24 @@ function Navbar() {
   };
 
   return (
-    <div className="flex justify-between fixed top-0 w-[100%] bg-white px-6 py-2 ">
-      <div className="flex items-center space-x-4  ">
+    <div className="flex flex-col sm:flex-row justify-between fixed top-0 w-full bg-white px-4 sm:px-6 py-2 z-50">
+      <div className="flex items-center space-x-4 mb-2 sm:mb-0">
         <AiOutlineMenu className="text-xl cursor-pointer" />
-        <img src={logo} alt="" className="w-28 cursor-pointer" />
+        <img src={logo} alt="" className="w-24 sm:w-28 cursor-pointer" />
       </div>
-      <div className="flex w-[35%] items-center ">
-        <div className="w-[100%] px-4 py-2 border-[1px] border-gray-400 rounded-l-full">
+      <div className="flex w-full sm:w-[35%] items-center mb-2 sm:mb-0">
+        <div className="w-full px-4 py-2 border border-gray-400 rounded-l-full">
           <input
             type="text"
             placeholder="Search krle bro"
-            className=" outline-none"
+            className="outline-none w-full"
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyUp={searchQueryHandler}
             value={searchQuery}
           />
         </div>
         <button
-          className="px-4 py-2 border-[1px] border-gray-400 bg-gray-100 rounded-r-full"
+          className="px-4 py-2 border border-gray-400 bg-gray-100 rounded-r-full"
           onClick={() => searchQueryHandler("searchButton")}
         >
           <CiSearch size={"24px"} />
@@ -53,7 +53,7 @@ function Navbar() {
           className="ml-3 border border-gray-600 rounded-full p-2 cursor-pointer hover:bg-gray-200 duration-200"
         />
       </div>
-      <div className="flex  space-x-5 items-center ">
+      <div className="flex space-x-5 items-center">
         <RiVideoAddLine className="text-2xl" />
         <AiOutlineBell className="text-2xl" />
         <Avatar src={profile} size="32" round={true} />
